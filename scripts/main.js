@@ -1,4 +1,10 @@
 drop = document.getElementById('droparea')
+placeholder = document.getElementById('nofile')
+placeholder.style.fontFamily = "Arial,Verdana"
+adaptiveFontSize = window.innerWidth / 100 + "px"
+placeholder.style.fontSize = adaptiveFontSize
+
+
 let loaded = false
 let testing = true
  
@@ -8,6 +14,7 @@ drop.style.height = `${window.innerHeight}px`
 // This was pulled straight from googles example for drag/drop file.
 // Then modified to use the whole screen and for our file.
 // Source: https://web.dev/articles/read-files
+
 drop.addEventListener('dragover', (event) => {
     event.stopPropagation()
     event.preventDefault()
@@ -26,6 +33,9 @@ drop.addEventListener('drop', (event) => {
     drop.appendChild(svg)
     loaded = true
     console.log(fileList)
+    if (loaded) {
+        placeholder.remove()
+    }
     displayGerber(rawText, svg, testing)
   })
 });
