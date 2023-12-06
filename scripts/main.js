@@ -1,10 +1,10 @@
-drop = document.getElementById('droparea')
 placeholder = document.getElementById('nofile')
 placeholder.style.fontFamily = "Arial,Verdana"
-adaptiveFontSize = String(Math.ceil(window.innerWidth / 30)) + "px"
+adaptiveFontSize = String(Math.ceil(window.innerWidth / 50)) + "px"
 placeholder.style.fontSize = adaptiveFontSize
 
 
+drop = document.getElementById('droparea')
 let loaded = false
 let testing = true
  
