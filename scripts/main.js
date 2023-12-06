@@ -20,8 +20,9 @@ db.version(1).stores({
 })
 
 async function GetDate() {
-    lastrun = await db.default.toArray()
-    return lastrun[lastrun.length-1].lastused ? lastrun[lastrun.length-1].lastused : null
+    lastrun = await db.default.orderBy('id').last()
+    console.log(`${lastrun}`)
+    return lastrun.lastused ? lastrun.lastused : false
 }
 
 lastdate = GetDate()
