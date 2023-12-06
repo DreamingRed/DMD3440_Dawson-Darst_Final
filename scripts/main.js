@@ -16,13 +16,16 @@ db.version(1).stores({
     default: "++id, lastused",
 })
 
-placeholder.innerText = placeholder.innerText + '\n' + "Not run yet."
 
 db.default.orderBy('id').last().then((lastrun) => {
     console.log(`${lastrun.lastused}, ${lastrun.id}`)
-    splitText = placeholder.innerText.split(/\n/)
-    placeholder.innerText = splitTest[0] + '\n' + lastrun.lastused
+    placeholder.innerText = placeholder.innerText + '\n' + lastrun.lastused
 })
+
+// Lmfao this code sucks.
+if (placeholder.innerText.length <= "Please Drag & Drop a Gerber Format File:".length ) {
+    placeholder.innerText = placeholder.innerText + '\n' + "Not run yet."
+}
 
 placeholder.style.fontFamily = "Arial,Verdana"
 adaptiveFontSize = String(Math.ceil(window.innerWidth / 50)) + "px"
