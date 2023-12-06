@@ -1,7 +1,7 @@
 drop = document.getElementById('droparea')
 placeholder = document.getElementById('nofile')
 placeholder.style.fontFamily = "Arial,Verdana"
-adaptiveFontSize = window.innerWidth / 100 + "px"
+adaptiveFontSize = String(Math.ceil(window.innerWidth / 30)) + "px"
 placeholder.style.fontSize = adaptiveFontSize
 
 
