@@ -27,7 +27,7 @@ async function GetDate() {
 }
 
 addEventListener("load", (event) => {
-    lastdate = GetDate;
+    lastdate = GetDate();
     placeholder = document.getElementById('nofile')
     placeholder.innerText = placeholder.innerText + '\n' + lastdate
     placeholder.style.fontFamily = "Arial,Verdana"
