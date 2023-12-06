@@ -1,22 +1,23 @@
 // Thanks stack overflow. This App is not meant to Cache data, as it's meant to be handling some sensitive stuff.
 // However, in the interest of checking boxes for the final, it's going to cache and display the last time it was used.
 // Please don't dock me 25% for this -- it's really not made for this purpose ;(
-currentdate = new Date(); 
+currentdate = new Date() 
+placeholder = document.getElementById('nofile')
 datetime = "Last used: " + currentdate.getDate() + "/"
                 + (currentdate.getMonth()+1)  + "/" 
                 + currentdate.getFullYear() + " @ "  
                 + currentdate.getHours() + ":"  
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds();
-
-db = new Dexie("usageDB")
-
-// DB with single table "friends" with primary key "id" and
+                
+                db = new Dexie("usageDB")
+                
+                // DB with single table "friends" with primary key "id" and
 // indexes on properties "name" and "age"
 
 db.version(1).stores({
     default: "++id, lastused",
-});
+})
 
 lastrun = db.default.toArray()
 
@@ -24,7 +25,6 @@ if (!lastrun) { lastrun = 'Not run yet.' }
 
 placeholder.value = lastrun + '\n' + placeholder.value
 
-placeholder = document.getElementById('nofile')
 placeholder.style.fontFamily = "Arial,Verdana"
 adaptiveFontSize = String(Math.ceil(window.innerWidth / 50)) + "px"
 placeholder.style.fontSize = adaptiveFontSize
