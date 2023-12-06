@@ -27,12 +27,13 @@ async function GetDate() {
 }
 
 addEventListener("load", (event) => {
-    lastdate = GetDate();
-    placeholder = document.getElementById('nofile')
-    placeholder.innerText = placeholder.innerText + '\n' + lastdate
-    placeholder.style.fontFamily = "Arial,Verdana"
-    adaptiveFontSize = String(Math.ceil(window.innerWidth / 50)) + "px"
-    placeholder.style.fontSize = adaptiveFontSize
+    GetDate().then((lastdate) => {
+        placeholder = document.getElementById('nofile')
+        placeholder.innerText = placeholder.innerText + '\n' + lastdate
+        placeholder.style.fontFamily = "Arial,Verdana"
+        adaptiveFontSize = String(Math.ceil(window.innerWidth / 50)) + "px"
+        placeholder.style.fontSize = adaptiveFontSize
+    })
 });
 
 
