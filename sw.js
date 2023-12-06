@@ -8,7 +8,8 @@ const URLS = [
     `${GHPATH}/scripts/main.js`,
     `${GHPATH}/images/ios/1024.png`,
     'https://unpkg.com/dexie/dist/dexie.js',
-  ];
+    "https://cdnjs.cloudflare.com/ajax/libs/dexie/3.2.4/dexie.min.js",
+];
 
 self.addEventListener("install", function (e) {
    e.waitUntil(
