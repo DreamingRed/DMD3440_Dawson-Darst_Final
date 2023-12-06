@@ -19,11 +19,15 @@ db.version(1).stores({
     default: "++id, lastused",
 })
 
-lastrun = await db.default.toArray()
+async function GetDate() {
+    lastrun = await db.default.toArray()
+    return lastrun[lastrun.length-1].lastused
+}
 
-if (!lastrun) { lastrun = 'Not run yet.' }
+lastdate = GetDate()
+if (!lastdate) { lastdate = 'Not run yet.' }
 
-placeholder.innerText = lastrun + '\n' + placeholder.innerText
+placeholder.innerText = lastdate + '\n' + placeholder.innerText
 
 placeholder.style.fontFamily = "Arial,Verdana"
 adaptiveFontSize = String(Math.ceil(window.innerWidth / 50)) + "px"
