@@ -22,11 +22,6 @@ db.default.orderBy('id').last().then((lastrun) => {
     placeholder.innerText = placeholder.innerText + '\n' + lastrun.lastused
 })
 
-// Lmfao this code sucks.
-if (placeholder.innerText.length <= "Please Drag & Drop a Gerber Format File:".length ) {
-    placeholder.innerText = placeholder.innerText + '\n' + "Not run yet."
-}
-
 placeholder.style.fontFamily = "Arial,Verdana"
 adaptiveFontSize = String(Math.ceil(window.innerWidth / 50)) + "px"
 placeholder.style.fontSize = adaptiveFontSize
