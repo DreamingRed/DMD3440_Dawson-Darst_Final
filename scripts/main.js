@@ -1,4 +1,4 @@
-// Thanks stack overflow. This App is not meant to Cache data, as it's meant to be handling some sensitive stuff.
+// Thanks stack overflow for the date formatting. This App is not meant to Cache data, as it's meant to be handling some sensitive stuff.
 // However, in the interest of checking boxes for the final, it's going to cache and display the last time it was used.
 // Please don't dock me 25% for this -- it's really not made for this purpose ;(
 currentdate = new Date() 
@@ -15,7 +15,6 @@ db = new Dexie("usageDB")
 db.version(1).stores({
     default: "++id, lastused",
 })
-
 
 db.default.orderBy('id').last().then((lastrun) => {
     console.log(`${lastrun.lastused}, ${lastrun.id}`)
@@ -36,7 +35,6 @@ drop.style.height = `${window.innerHeight}px`
 // This was pulled straight from googles example for drag/drop file.
 // Then modified to use the whole screen and for our file.
 // Source: https://web.dev/articles/read-files
-
 drop.addEventListener('dragover', (event) => {
     event.stopPropagation()
     event.preventDefault()
@@ -66,7 +64,6 @@ drop.addEventListener('drop', (event) => {
     })
 })
 });
-
 
 // Main function that aggragates all the others
 function displayGerber(rawInput, svg, testing) {
