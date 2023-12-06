@@ -25,15 +25,16 @@ async function GetDate() {
     console.log(`${lastrun.lastused}, ${lastrun.id}`)
     return lastrun.lastused
 }
+
 addEventListener("load", (event) => {
     lastdate = GetDate;
+    placeholder = document.getElementById('nofile')
+    placeholder.innerText = placeholder.innerText + '\n' + lastdate
+    placeholder.style.fontFamily = "Arial,Verdana"
+    adaptiveFontSize = String(Math.ceil(window.innerWidth / 50)) + "px"
+    placeholder.style.fontSize = adaptiveFontSize
 });
 
-placeholder.innerText = placeholder.innerText + '\n' + lastdate
-
-placeholder.style.fontFamily = "Arial,Verdana"
-adaptiveFontSize = String(Math.ceil(window.innerWidth / 50)) + "px"
-placeholder.style.fontSize = adaptiveFontSize
 
 
 drop = document.getElementById('droparea')
