@@ -20,7 +20,7 @@ placeholder.innerText = placeholder.innerText + '\n' + "Not run yet."
 
 db.default.orderBy('id').last().then((lastrun) => {
     console.log(`${lastrun.lastused}, ${lastrun.id}`)
-    splitText = placeholder.innerText.split('\n')
+    splitText = placeholder.innerText.split(/\n/)
     placeholder.innerText = splitTest[0] + '\n' + lastrun.lastused
 })
 
