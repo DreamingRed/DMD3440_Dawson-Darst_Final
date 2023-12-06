@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerber viewer</title>
-    <link rel="manifest" href="/app.webmanifest">
-    <link rel="apple-touch-icon" href="/images/ios/1024.png">
+    <link rel="manifest" href="/DMD3440_Dawson-Darst_Final/app.webmanifest">
+    <link rel="apple-touch-icon" href="/DMD3440_Dawson-Darst_Final/images/ios/1024.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div id="droparea"></div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register("DMD3440_Dawson-Darst_Final/sw.js", {scope: "/DMD3440_Dawson-Darst_Final/"});
+        }
+    </script>
     <script src="scripts/main.js"></script>
 </body>
 </html>

@@ -1,7 +1,3 @@
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("/sw.js");
-}
-
 drop = document.getElementById('droparea')
 let loaded = false
 let testing = true

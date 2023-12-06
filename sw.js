@@ -1,10 +1,11 @@
 const cacheName = 'cacheMoney'
+const GHPATH = '/DMD3440_Dawson-Darst_Final'
 
 const urlsToCache = [
-    "/",
-    "index.html",
-    "style.css",
-    "scripts/main.js",
+    `${GHPATH}/`,
+    `${GHPATH}/index.html`,
+    `${GHPATH}/style.css`,
+    `${GHPATH}/scripts/main.js`,
   ];
 
 self.addEventListener("install", event => {
