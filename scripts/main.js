@@ -19,7 +19,7 @@ db.version(1).stores({
     default: "++id, lastused",
 })
 
-lastrun = db.default.toArray()
+lastrun = await db.default.toArray()
 
 if (!lastrun) { lastrun = 'Not run yet.' }
 
