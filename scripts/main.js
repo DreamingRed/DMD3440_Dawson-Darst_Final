@@ -25,8 +25,9 @@ async function GetDate() {
     console.log(`${lastrun.lastused}, ${lastrun.id}`)
     return lastrun.lastused
 }
-
-lastdate = GetDate()
+addEventListener("load", (event) => {
+    lastdate = GetDate;
+});
 
 placeholder.innerText = placeholder.innerText + '\n' + lastdate
 
