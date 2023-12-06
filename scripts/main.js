@@ -24,9 +24,11 @@ db.version(1).stores({
 db.default.orderBy('id').last().then((lastrun) => {
     console.log(`${lastrun.lastused}, ${lastrun.id}`)
     if (!lastrun.lastused) {
-        $lastrun.lastused = "Not run yet."
+        placeholder.innerText = placeholder.innerText + '\n' + "Not run yet."
     }
-    placeholder.innerText = placeholder.innerText + '\n' + lastrun.lastused
+    else {
+        placeholder.innerText = placeholder.innerText + '\n' + lastrun.lastused
+    }
 })
 
 placeholder.style.fontFamily = "Arial,Verdana"
