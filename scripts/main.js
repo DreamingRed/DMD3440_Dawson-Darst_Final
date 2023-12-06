@@ -21,18 +21,19 @@ db.default.add({
 })
 
 async function GetDate() {
-    lastrun = await db.default.orderBy('id').last()
-    console.log(`${lastrun.lastused}, ${lastrun.id}`)
-    return lastrun.lastused
+    db.default.orderBy('id').last().then((lastrun) => {
+        console.log(`${lastrun.lastused}, ${lastrun.id}`)
+        return lastrun.lastused
+    })
 }
 
 addEventListener("load", (event) => {
     GetDate().then((lastdate) => {
-        placeholder = document.getElementById('nofile')
-        placeholder.innerText = placeholder.innerText + '\n' + lastdate
-        placeholder.style.fontFamily = "Arial,Verdana"
+        placeholder2 = document.getElementById('nofile')
+        placeholder2.innerText = placeholder2.innerText + '\n' + lastdate
+        placeholder2.style.fontFamily = "Arial,Verdana"
         adaptiveFontSize = String(Math.ceil(window.innerWidth / 50)) + "px"
-        placeholder.style.fontSize = adaptiveFontSize
+        placeholder2.style.fontSize = adaptiveFontSize
     })
 });
 
