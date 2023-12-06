@@ -23,7 +23,7 @@ lastrun = db.default.toArray()
 
 if (!lastrun) { lastrun = 'Not run yet.' }
 
-placeholder.value = lastrun + '\n' + placeholder.value
+placeholder.innerText = lastrun + '\n' + placeholder.innerText
 
 placeholder.style.fontFamily = "Arial,Verdana"
 adaptiveFontSize = String(Math.ceil(window.innerWidth / 50)) + "px"
