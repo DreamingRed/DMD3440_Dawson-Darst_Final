@@ -6,7 +6,8 @@ const URLS = [
     `${GHPATH}/index.html`,
     `${GHPATH}/css/style.css`,
     `${GHPATH}/scripts/main.js`,
-    `${GHPATH}/images/ios/1024.png`
+    `${GHPATH}/images/ios/1024.png`,
+    'https://unpkg.com/dexie/dist/dexie.js',
   ];
 
 self.addEventListener("install", function (e) {
