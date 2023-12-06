@@ -10,25 +10,28 @@ datetime = "Last used: " + currentdate.getDate() + "/"
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds();
                 
-                db = new Dexie("usageDB")
+db = new Dexie("usageDB")
                 
-                // DB with single table "friends" with primary key "id" and
+// DB with single table "friends" with primary key "id" and
 // indexes on properties "name" and "age"
 
 db.version(1).stores({
     default: "++id, lastused",
 })
 
+db.default.add({
+    lastused: "Not run yet.",
+})
+
 async function GetDate() {
     lastrun = await db.default.orderBy('id').last()
     console.log(`${lastrun}`)
-    return lastrun.lastused ? lastrun.lastused : false
+    return lastrun.lastused
 }
 
 lastdate = GetDate()
-if (!lastdate) { lastdate = 'Not run yet.' }
 
-placeholder.innerText = lastdate + '\n' + placeholder.innerText
+placeholder.innerText = placeholder.innerText + '\n' + lastdate
 
 placeholder.style.fontFamily = "Arial,Verdana"
 adaptiveFontSize = String(Math.ceil(window.innerWidth / 50)) + "px"
