@@ -16,17 +16,17 @@ db.version(1).stores({
     default: "++id, lastused",
 })
 
-db.default.add({
-    lastused: "Not run yet.",
-})
+// db.default.add({
+//     lastused: "Not run yet.",
+// })
 
 
 db.default.orderBy('id').last().then((lastrun) => {
     console.log(`${lastrun.lastused}, ${lastrun.id}`)
-    return lastrun.lastused
-}).then((lastdate) => {
-    console.log(`${lastdate}`)
-    placeholder.innerText = placeholder.innerText + '\n' + lastdate
+    if (!lastrun.lastused) {
+        $lastrun.lastused = "Not run yet."
+    }
+    placeholder.innerText = placeholder.innerText + '\n' + lastrun.lastused
 })
 
 placeholder.style.fontFamily = "Arial,Verdana"
@@ -35,7 +35,7 @@ placeholder.style.fontSize = adaptiveFontSize
 
 drop = document.getElementById('droparea')
 let loaded = false
-let testing = true
+let testing = false
 
 drop.style.width = `${window.innerWidth}px`
 drop.style.height = `${window.innerHeight}px`
