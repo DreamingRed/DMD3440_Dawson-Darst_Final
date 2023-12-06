@@ -4,14 +4,15 @@ const GHPATH = "/DMD3440_Dawson-Darst_Final"
 const URLS = [
     `${GHPATH}/`,
     `${GHPATH}/index.html`,
-    `${GHPATH}/style.css`,
+    `${GHPATH}/css/style.css`,
     `${GHPATH}/scripts/main.js`,
+    `${GHPATH}/images/ios/1024.png`
   ];
 
 self.addEventListener("install", function (e) {
    e.waitUntil(
       caches.open(cacheName).then(function (cache) {
-         console.log(`Installing Cache: ${cache}\n`)
+         console.log(`Installing Cache: ${cacheName}\n`)
          return cache.addAll(URLS)
       })
    )
