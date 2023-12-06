@@ -11,9 +11,6 @@ datetime = "Last used: " + currentdate.getDate() + "/"
                 + currentdate.getSeconds();
                 
 db = new Dexie("usageDB")
-                
-// DB with single table "friends" with primary key "id" and
-// indexes on properties "name" and "age"
 
 db.version(1).stores({
     default: "++id, lastused",
@@ -25,7 +22,7 @@ db.default.add({
 
 async function GetDate() {
     lastrun = await db.default.orderBy('id').last()
-    console.log(`${lastrun}`)
+    console.log(`${lastrun.lastused}, ${lastrun.id}`)
     return lastrun.lastused
 }
 
@@ -71,13 +68,14 @@ drop.addEventListener('drop', (event) => {
         placeholder.remove()
     }
     displayGerber(rawText, svg, testing)
+    
+    // Add the new time to DB
+    db.default.add({
+        lastused: datetime
+    })
 })
 });
 
-// Add the new time to DB
-db.default.add({
-    lastused: datetime
-})
 
 // Main function that aggragates all the others
 function displayGerber(rawInput, svg, testing) {
