@@ -10,14 +10,14 @@
     "description": "This app will read and render Gerber Format Files.",
     "screenshots" : [
       {
-        "src": "/DMD3440_Dawson-Darst_Final/images/screenshots/ss2.png",
+        "src": "/DMD3440_Dawson-Darst_Final/images/ss2.png",
         "sizes": "1280x720",
         "type": "image/webp",
         "form_factor": "narrow",
         "label": "A signal layer being rendered."
       },
       {
-        "src": "/DMD3440_Dawson-Darst_Final/images/screenshots/ss1.png",
+        "src": "/DMD3440_Dawson-Darst_Final/images/ss1.png",
         "sizes": "1280x720",
         "type": "image/webp",
         "form_factor": "narrow",
